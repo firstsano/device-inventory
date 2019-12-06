@@ -1,0 +1,17 @@
+.navigation {
+  @extend .panel, .panel-default;
+
+  & .navigation__title {
+    @extend .panel-heading;
+    margin: 0;
+    text-transform: capitalize;
+  }
+
+  & .navigation__body {
+    @extend .list-group;
+  }
+
+  & .navigation__item {
+    @extend  .list-group-item;
+  }
+}

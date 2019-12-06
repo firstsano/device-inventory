@@ -1,0 +1,41 @@
+.simple-form {
+  @extend .form-horizontal;
+
+  & .simple-form__field {
+    @extend .form-group;
+
+    &.simple-form__field_has-errors {
+      @extend .has-error;
+    }
+    &.simple-form__field_has-success {
+      //@extend .has-success;
+    }
+  }
+
+  .simple-form__field_has-feedback {
+    @extend .has-feedback;
+    font-size: 12px;
+    color: $color-text-error;
+    margin-bottom: 0;
+  }
+
+  & .simple-form__label {
+    @extend .col-xs-4, .control-label;
+  }
+
+  & .simple-form__controls {
+    @extend .col-xs-8;
+
+    &.simple-form__controls_checkbox {
+      @extend .col-xs-offset-4, .col-xs-8;
+    }
+  }
+
+  & .simple-form__checkbox {
+    @extend .checkbox;
+  }
+
+  & .simple-form__control {
+    @extend .form-control;
+  }
+}

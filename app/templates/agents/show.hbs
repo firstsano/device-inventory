@@ -1,0 +1,11 @@
+<div class="action-panel">
+  <h3 class="action-panel__title"> {{t 'site.captions.show'}} </h3>
+  <div class="action-panel__body action-panel__body_padded">
+    {{show-for model=model.agent displayProperties=showForProperties}}
+    <hr />
+    <div>
+      <h4> Баланс </h4>
+      {{devices-list devices=model.devices}}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="action-panel">
+  <h3 class="action-panel__title"> {{t 'site.captions.table'}} </h3>
+  <div class="action-panel__body action-panel__body_padded">
+    <div class="well">
+      <h4>Фильтр: </h4>
+      <form {{action (route-action 'filter' filter) on="submit"}}>
+        <div class="action-panel__aside">
+          {{agent-selector filter.agentFrom (t 'controls.agentFrom') onchange=(action (mut filter.agentFrom))}}
+        </div>
+        <div class="action-panel__aside">
+          {{agent-selector filter.agentTo (t 'controls.agentTo') onchange=(action (mut filter.agentTo))}}
+        </div>
+        <div class="action-panel__aside">
+          {{addon-input filter.deviceMac (t 'controls.deviceMac')}}
+        </div>
+        <hr />
+        {{simple-async-button (t 'site.actions.filter')
+                              action=(route-action 'filter' filter)
+                              class="btn btn-default"
+        }}
+      </form>
+    </div>
+
+    {{simple-server-table data=transactions useNumericPagination=true
+        showColumnsDropdown=false showGlobalFilter=false showPageSize=false
+        useFilteringByColumns=false columns=tableSettings.columns}}
+    {{outlet}}
+  </div>
+</div>

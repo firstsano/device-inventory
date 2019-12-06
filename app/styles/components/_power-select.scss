@@ -1,0 +1,7 @@
+.power-select {
+  & .power-select__trigger {
+    border-radius: 0 !important;
+    border-top-right-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+  }
+}

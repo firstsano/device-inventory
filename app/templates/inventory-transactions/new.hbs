@@ -1,0 +1,44 @@
+{{#agent-devices-picker relations.agentFrom
+                        relations.devices
+                        as |agentSelector devicesTable selectedDevicesTable selectedDevicesList|}}
+  <div class="action-panel">
+    <h3 class="action-panel__title"> {{t 'site.captions.transactions.new'}} </h3>
+    <div class="action-panel__body action-panel__body_padded">
+      <div class="action-panel__aside"> {{component agentSelector}} </div>
+      <hr />
+      <div class="device-controls">
+        <div class="device-controls__device-list">
+          {{component devicesTable}}
+          <div class="device-controls__mac-scanner">
+            {{device-scanner onScan=(perform (route-task 'checkAgentDevice' relations.agentFrom))
+                             onSuccess=(route-action 'addDeviceToSelected' relations.devices)
+            }}
+          </div>
+        </div>
+        <div class="device-controls__macs-and-target">
+          <div class="device-controls__selected-devices"> {{component selectedDevicesTable}} </div>
+          {{component selectedDevicesList}}
+          <hr />
+          {{agent-selector relations.agentTo (t 'controls.targetAgent') onchange=(action (mut relations.agentTo))}}
+          <hr />
+          <div>
+            <label for="description">{{t 'models.attributes.transaction.description'}}</label>
+            <div>
+              <textarea id="description"
+                        value={{changeset.description}}
+                        class="device-controls__description"
+                        oninput={{action (mut changeset.description) value="target.value"}}>
+              </textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="action-panel__controls controls">
+      {{simple-async-button (t 'site.actions.create')
+                            action=(route-action "create" changeset)
+                            class='controls__btn'
+      }}
+    </div>
+  </div>
+{{/agent-devices-picker}}

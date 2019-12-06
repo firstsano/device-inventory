@@ -1,0 +1,30 @@
+.device-controls {
+  @extend .row;
+
+  & .device-controls__device-list {
+    @extend .col-xs-6;
+  }
+
+  & .device-controls__selected-devices {
+    @extend .well, .well-sm;
+    height: 300px;
+    overflow-y: auto;
+  }
+
+  & .device-controls__macs-and-target {
+    @extend .col-xs-6;
+  }
+
+  & .device-controls__mac-scanner {
+    margin-top: 40px;
+  }
+
+  & .device-controls__description {
+    height: 50px;
+    width: 100%;
+  }
+
+  & .device-controls__transaction-time {
+    width: 100%;
+  }
+}

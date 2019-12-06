@@ -1,0 +1,16 @@
+<div class="addon-selector power-select">
+  <span class="addon-selector__label">{{label}}</span>
+  {{#power-select selected=value
+                  search=(perform performSearch)
+                  searchField='name'
+                  onchange=onchange
+                  renderInPlace=true
+                  allowClear=true
+                  searchMessage=(t 'site.actions.search')
+                  loadingMessage=(t 'site.actions.pending')
+                  noMatchesMessage=(t 'site.common.noMatches')
+                  triggerClass='addon-selector__input power-select__trigger'
+                  as |agent|}}
+    <strong>{{agent.groupName}}:</strong> {{agent.name}}
+  {{/power-select}}
+</div>

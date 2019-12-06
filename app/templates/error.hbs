@@ -1,0 +1,7 @@
+<div class="alert alert-danger" role="alert">
+  {{#each model.errors as |error|}}
+    {{error.status}}: {{error.detail}}
+  {{else}}
+    {{model.name}}: {{model.message}}
+  {{/each}}
+</div>

@@ -1,0 +1,16 @@
+.devices-list {
+  & .devices-list__devices-type {
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  & .devices-list__devices-count {
+    font-weight: bold;
+    margin-left: 10px;
+  }
+
+  & .devices-list__expand-devices {
+    display: inline-block;
+    margin-left: 15px;
+  }
+}

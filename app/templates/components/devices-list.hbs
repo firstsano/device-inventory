@@ -1,0 +1,23 @@
+<div class="devices-list">
+  <div class="devices-list__devices-group">
+    <span class="devices-list__devices-type"> Всего устройств </span>:
+    <span class="devices-list__devices-count"> {{devicesCount}} </span>
+    {{#if withExpand}}
+      {{#if devicesCount}}
+        <div class="devices-list__expand-devices"> {{expand-devices devices=devices}} </div>
+      {{/if}}
+    {{/if}}
+  </div>
+
+  {{#each deviceTypes as |type|}}
+    <div class="devices-list__devices-group">
+      <span class="devices-list__devices-type"> {{type.value}} </span>:
+      <span class="devices-list__devices-count"> {{type.items.length}} </span>
+      {{#if withExpand}}
+        {{#if type.items.length}}
+          <div class="devices-list__expand-devices"> {{expand-devices devices=type.items}} </div>
+        {{/if}}
+      {{/if}}
+    </div>
+  {{/each}}
+</div>

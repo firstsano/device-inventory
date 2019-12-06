@@ -1,0 +1,13 @@
+<div class="action-panel">
+  <h3 class="action-panel__title"> {{t 'site.captions.table'}} </h3>
+  <div class="action-panel__body action-panel__body_padded">
+    {{simple-server-table data=model useNumericPagination=true customClasses=tableSettings.customClasses
+                          showGlobalFilter=false useFilteringByColumns=false sendDisplayDataChangedAction=true
+                          columns=tableSettings.columns}}
+  </div>
+  <div class="action-panel__controls controls">
+    {{#link-to 'devices.new' class='controls__btn'}}
+      {{fa-icon "plus"}} {{t 'site.actions.add'}}
+    {{/link-to}}
+  </div>
+</div>

@@ -1,0 +1,30 @@
+.action-panel {
+  @extend .panel, .panel-default;
+
+  & .action-panel__title {
+    @extend .panel-heading;
+    margin: 0;
+  }
+
+  & .action-panel__body {
+    @extend .panel-body;
+
+    &.action-panel__body_padded {
+      padding: 30px;
+    }
+  }
+
+  & .action-panel__form {
+    max-width: 800px;
+    padding: 20px 0;
+  }
+
+  & .action-panel__aside {
+    max-width: 40%;
+  }
+
+  & .action-panel__controls {
+    @extend .panel-footer;
+    background-color: transparent !important;
+  }
+}

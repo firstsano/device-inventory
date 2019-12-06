@@ -1,0 +1,10 @@
+<ul class="selected-devices">
+  {{#each devices as |device|}}
+    <li class="selected-devices__item">
+      {{device.mac}} - <strong>{{device.devType.name}}</strong>
+      <span {{action onRemove device}} class="selected-devices__remove-item"></span>
+    </li>
+  {{else}}
+    <li class="selected-devices__empty"> Нет выбранных устройств </li>
+  {{/each}}
+</ul>

@@ -1,0 +1,11 @@
+.addon-selector {
+  @extend .input-group;
+
+  & .addon-selector__label {
+    @extend .input-group-addon;
+  }
+
+  & .addon-selector__input {
+    @extend .form-control;
+  }
+}

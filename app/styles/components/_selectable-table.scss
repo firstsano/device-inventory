@@ -1,0 +1,15 @@
+.selectable-table {
+  @extend .table, .table-striped, .table-bordered, .table-condensed;
+
+  & .selectable-table__row {
+    cursor: pointer;
+
+    &.selectable-table__row_selected {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  & .selected-row {
+    @extend .success;
+  }
+}

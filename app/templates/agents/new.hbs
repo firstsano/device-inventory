@@ -1,0 +1,54 @@
+<div class="action-panel">
+  <h3 class="action-panel__title"> {{t 'site.captions.edit'}} </h3>
+  <div class="action-panel__body action-panel__body_padding">
+    <div class="action-panel__form">
+      {{#do-form changeset showAllValidations=true submit=(route-action 'create' changeset) as |form|}}
+        {{#form.do-field 'agentType' as |f|}}
+          {{f.do-label (t 'models.attributes.agent.agentType')}}
+          <div class="simple-form__controls">
+            {{f.do-control 'select' options=agentTypes optionTargetPath="id" optionLabelPath="name"}}
+            {{f.do-feedback}}
+            {{f.do-hint hintText}}
+          </div>
+        {{/form.do-field}}
+        {{#form.do-field 'name' as |f|}}
+          {{f.do-label (t 'models.attributes.agent.name')}}
+          <div class="simple-form__controls">
+            {{f.do-control 'input'}}
+            {{f.do-feedback}}
+            {{f.do-hint hintText}}
+          </div>
+        {{/form.do-field}}
+        {{#if isUserProfiled}}
+          {{#form.do-field 'profileId' as |f|}}
+            {{f.do-label (t 'models.attributes.agent.profileId')}}
+            <div class="simple-form__controls">
+              {{#f.do-control as |context|}}
+                {{one-way-select context.value options=userProfiles optionTargetPath="id"
+                                 optionLabelPath="name" update=(action (mut context.value))}}
+              {{/f.do-control}}
+              {{f.do-feedback}}
+              {{f.do-hint hintText}}
+            </div>
+          {{/form.do-field}}
+        {{/if}}
+      {{/do-form}}
+    </div>
+  </div>
+  <div class="action-panel__controls controls">
+    {{#async-button classNames='controls__btn controls__btn_success' action=(route-action "create" changeset) as |component state|}}
+      {{#if state.isDefault}}
+        {{fa-icon "plus"}} {{t 'site.actions.create'}}
+      {{/if}}
+      {{#if state.isPending}}
+        {{fa-icon "plus"}} {{t 'site.actions.pending'}}
+      {{/if}}
+      {{#if state.isRejected}}
+        {{fa-icon "plus"}} {{t 'site.actions.create'}}
+      {{/if}}
+      {{#if state.isFulfilled}}
+        {{fa-icon "plus"}} {{t 'site.actions.create'}}
+      {{/if}}
+    {{/async-button}}
+  </div>
+</div>

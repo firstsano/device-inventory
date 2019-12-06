@@ -1,0 +1,7 @@
+<button type="submit" class={{class}} onclick={{perform performAction}}>
+  {{#if performAction.isRunning}}
+    {{fa-icon 'clock-o'}} {{t 'site.actions.pending'}}
+  {{else}}
+    {{icon}} {{label}}
+  {{/if}}
+</button>

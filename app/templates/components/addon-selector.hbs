@@ -1,0 +1,16 @@
+<div class="addon-selector">
+  <span class="addon-selector__label">{{label}}</span>
+  {{one-way-select value
+                   options=options
+                   optionValuePath=optionValuePath
+                   optionLabelPath=optionLabelPath
+                   groupLabelPath=groupLabelPath
+                   update=update
+                   prompt=prompt
+                   includeBlank=includeBlank
+                   promptIsDisabled=promptIsDisabled
+                   class='addon-selector__input'}}
+  {{#if withPostfix}}
+    <span class="addon-selector__label">{{get value valueAddon}}</span>
+  {{/if}}
+</div>

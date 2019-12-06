@@ -1,0 +1,24 @@
+<div class="action-panel">
+  <h3 class="action-panel__title"> Устройство № {{model.id}} </h3>
+  <div class="action-panel__body action-panel__body_padded">
+    <ul>
+      <li> <strong>Mac:</strong> {{model.mac}} </li>
+      <li> <strong>Модель:</strong> {{model.devType.fullName}} </li>
+      <li> <strong>На учете (зафиксирована):</strong> {{boolean-icon model.takenIntoAccount}} </li>
+    </ul>
+  </div>
+  <div class="action-panel__controls controls">
+    {{#unless model.takenIntoAccount}}
+      {{#link-to 'devices.edit' model.id tagName="button" class="controls__btn"}}
+        {{fa-icon "edit"}} {{t 'site.actions.edit'}}
+      {{/link-to}}
+      <a {{action (route-action "destroy" model)}} class="controls__btn controls__btn_danger">
+        {{fa-icon "remove"}} {{t "site.actions.delete"}}
+      </a>
+    {{/unless}}
+
+    {{#link-to 'devices.index' tagName="button" class="controls__btn"}}
+      {{fa-icon "list"}} {{t 'site.captions.devices'}}
+    {{/link-to}}
+  </div>
+</div>

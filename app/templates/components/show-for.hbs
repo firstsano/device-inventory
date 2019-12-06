@@ -1,0 +1,18 @@
+<div>
+  {{#each showForProperties as |attr|}}
+    <div>
+      <span class="badge badge-default">{{t (concat 'models.attributes.' modelName '.' attr.name)}}</span>
+      {{#with attr.meta.type as |t|}}
+        {{#if (eq t "boolean")}}
+          {{t (concat 'site.common.' (get model attr.name))}}
+        {{else if (eq t "string")}}
+          {{get model attr.name}}
+        {{else if (eq t "number")}}
+          {{get model attr.name}}
+        {{else if (eq t "relation")}}
+          {{get model (concat attr.name ".name")}}
+        {{/if}}
+      {{/with}}
+    </div>
+  {{/each}}
+</div>

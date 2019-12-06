@@ -1,0 +1,26 @@
+<div class="device-scanner">
+  <form {{action (perform scanDevice filteredMac) on='submit'}}>
+    <div class="addon-selector">
+      <span class="addon-selector__label">{{t 'controls.deviceScan'}}</span>
+      <input value={{filteredMac}}
+             placeholder={{t 'controls.hints.deviceScan.example'}}
+             class='addon-selector__input'
+             oninput={{action (mut mac) value="target.value"}}
+             onfocus={{action 'switchScanner'}}
+             onblur={{action 'switchScanner'}}
+      />
+    </div>
+    <div class="device-scanner__hints">
+      <span class="device-scanner__indicator {{if isScannerActive 'device-scanner__indicator_active'}}"></span>
+      <span class="device-scanner__hint-description">
+        {{if isScannerActive (t 'controls.hints.deviceScan.startScan') (t 'controls.hints.deviceScan.top')}}
+      </span>
+    </div>
+  </form>
+
+  <audio class="device-scanner__audio">
+    <source src="/sounds/error.ogg" type="audio/ogg">
+    <source src="/sounds/error.mp3" type="audio/mpeg">
+    <source src="/sounds/error.wav" type="audio/wav">
+  </audio>
+</div>

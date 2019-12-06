@@ -1,0 +1,19 @@
+<div class="expand-devices">
+  <a href="#" class="expand-devices__link" {{action "toggleIsExpanded"}}>
+    {{#if isExpanded}}
+      {{fa-icon "minus-square"}}
+    {{else}}
+      {{fa-icon "plus-square"}}
+    {{/if}}
+  </a>
+
+  {{#if isExpanded}}
+    <div class="expand-devices__list-frame">
+      <ul class="expand-devices__list">
+        {{#each devices as |device|}}
+          <li> {{device.mac}} </li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
+</div>

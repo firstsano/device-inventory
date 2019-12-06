@@ -1,0 +1,19 @@
+.selected-devices {
+  @extend .list-group;
+  margin: 0 !important;
+
+  & .selected-devices__item {
+    @extend .list-group-item;
+  }
+
+  & .selected-devices__empty {
+    @extend .list-group-item, .disabled;
+  }
+
+  & .selected-devices__remove-item {
+    @extend .glyphicon, .glyphicon-remove, .pull-right;
+    color: $color-danger;
+    vertical-align: text-bottom;
+    cursor: pointer;
+  }
+}

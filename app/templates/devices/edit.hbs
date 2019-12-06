@@ -1,0 +1,22 @@
+<div class="action-panel">
+  <h3 class="action-panel__title"> {{t 'site.captions.table'}} </h3>
+  <div class="action-panel__body action-panel__body_padded">
+    <form {{action (route-action 'update' changeset) on="submit"}}>
+      {{addon-input changeset.mac (t 'models.attributes.device.mac')}}
+      <br />
+      <div class="form-group">
+        {{dev-type-selector relations.devType (t 'models.attributes.device.devType') includeBlank=" " onUpdate=(action (mut relations.devType))}}
+      </div>
+    </form>
+  </div>
+  <div class="action-panel__controls controls">
+    {{simple-async-button (t 'site.actions.save')
+                          action=(route-action "update" changeset)
+                          class='controls__btn controls__btn_primary'
+    }}
+
+    {{#link-to 'devices.index' tagName="button" class="controls__btn"}}
+      {{fa-icon "list"}} {{t 'site.captions.devices'}}
+    {{/link-to}}
+  </div>
+</div>

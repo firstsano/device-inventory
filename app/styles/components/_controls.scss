@@ -1,0 +1,12 @@
+.controls {
+
+  & .controls__btn {
+    @extend .btn, .btn-default;
+
+    &.controls__btn_sm { @extend .btn-sm }
+
+    &.controls__btn_primary { @extend .btn-primary }
+    &.controls__btn_success { @extend .btn-success }
+    &.controls__btn_danger { @extend .btn-danger }
+  }
+}

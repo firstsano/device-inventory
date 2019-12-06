@@ -1,0 +1,23 @@
+.expand-devices {
+  & .expand-devices__list-frame {
+    @extend .well, .well-sm;
+
+    display: inline-block;
+    vertical-align: text-top;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  & .expand-devices__list {
+    margin-bottom: 0;
+    font-size: 12px;
+  }
+
+  & .expand-devices__link {
+    text-decoration: none;
+
+    &:focus, &:hover, &:active, &:visited {
+      text-decoration: none;
+    }
+  }
+}

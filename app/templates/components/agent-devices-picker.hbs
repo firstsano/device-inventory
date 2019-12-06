@@ -1,0 +1,8 @@
+{{yield (component 'agent-selector' selectedAgent (t 'controls.selectedAgent') onchange=(action (mut selectedAgent)))
+        (component 'simple-server-table' data=devices useNumericPagination=true customClasses=tableSettings.customClasses
+                    displayDataChangedAction=(action "changeSelection") sendDisplayDataChangedAction=true showColumnsDropdown=false
+                    showGlobalFilter=false showPageSize=false useFilteringByColumns=false multipleSelect=true
+                    columns=tableSettings.columns preselectedItems=preselectedItems)
+        (component 'agent-devices-picker/devices-list' devices=selectedDevices onRemove=(action "deselectDevice"))
+        (component 'devices-list' devices=selectedDevices withExpand=false)
+}}

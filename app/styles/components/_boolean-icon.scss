@@ -1,0 +1,9 @@
+.boolean-icon {
+  & .boolean-icon__true {
+    color: $color-success;
+  }
+
+  & .boolean-icon__false {
+    color: $color-failure;
+  }
+}

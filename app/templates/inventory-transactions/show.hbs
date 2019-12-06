@@ -1,0 +1,49 @@
+<div class="action-panel">
+  <h3 class="action-panel__title"> Транзакция № {{model.id}} </h3>
+  <div class="action-panel__body action-panel__body_padded">
+    <ul>
+      <li> <strong>Проведена:</strong> {{model.time}} </li>
+      <li> <strong>Пользователем:</strong> {{model.createdBy.name}} </li>
+      <li> <strong>Комментарий:</strong> {{model.description}} </li>
+      <li> <strong>Подтверждена:</strong> {{boolean-icon model.committed}} </li>
+    </ul>
+    <table class="selectable-table">
+      <thead>
+      <tr>
+        <th> От кого </th>
+        <th> Устройства </th>
+        <th> Кому </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td> {{model.agentFrom.name}} </td>
+        <td>
+          <ul>
+            {{#each model.devices as |device|}}
+              <li> {{device.mac}} - {{device.devType.name}} </li>
+            {{/each}}
+          </ul>
+        </td>
+        <td> {{model.agentTo.name}} </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="action-panel__controls controls">
+    {{#link-to 'inventory-transactions.index' tagName="button" class="controls__btn"}}
+      {{fa-icon "angle-double-left"}} {{t 'site.actions.back'}}
+    {{/link-to}}
+    <a href={{link-to-download 'acceptance_act' model}} class="controls__btn">
+      {{fa-icon "file-text-o"}} {{t "other.formDocument"}}
+    </a>
+    {{#unless model.committed}}
+      {{#link-to 'inventory-transactions.edit' model.id tagName="button" class="controls__btn"}}
+        {{fa-icon "edit"}} {{t 'site.actions.edit'}}
+      {{/link-to}}
+      <a {{action "confirm" model}} class="controls__btn">
+        {{fa-icon "fa-check-square-o"}} {{t "site.actions.confirm"}}
+      </a>
+    {{/unless}}
+  </div>
+</div>

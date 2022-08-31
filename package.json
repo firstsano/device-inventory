@@ -62,7 +62,7 @@
     "humps": "^2.0.1",
     "loader.js": "^4.2.3",
     "moment": "^2.18.1",
-    "moment-timezone": "^0.5.13",
+    "moment-timezone": "^0.5.35",
     "sass": "^1.14.0"
   },
   "engines": {

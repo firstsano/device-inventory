@@ -22,7 +22,7 @@
     "ember-ajax": "^3.0.0",
     "ember-auto-import": "^1.2.13",
     "ember-changeset": "^1.2.3",
-    "ember-cli": "~2.18.0",
+    "ember-cli": "~4.8.0",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-babel": "^6.6.0",
     "ember-cli-dependency-checker": "^2.0.0",
